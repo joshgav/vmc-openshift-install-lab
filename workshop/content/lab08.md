@@ -20,7 +20,9 @@ govc vm.change -vm=master0.%GUID%.dynamic.opentlc.com \
               -m 16384 \
               -e="guestinfo.ignition.config.data.encoding=base64" \
               -e="guestinfo.ignition.config.data=${CONFIG_DATA}" \
-              -e="guestinfo.afterburn.initrd.network-kargs=${IPCFG}"
+              -e="guestinfo.afterburn.initrd.network-kargs=${IPCFG}" \
+              -e="disk.EnableUUID=TRUE" \
+              -e="stealclock.enable=TRUE"
 ```
 
 #### master1
@@ -43,7 +45,9 @@ govc vm.change -vm=master1.%GUID%.dynamic.opentlc.com \
               -m 16384 \
               -e="guestinfo.ignition.config.data.encoding=base64" \
               -e="guestinfo.ignition.config.data=${CONFIG_DATA}" \
-              -e="guestinfo.afterburn.initrd.network-kargs=${IPCFG}"
+              -e="guestinfo.afterburn.initrd.network-kargs=${IPCFG}" \
+              -e="disk.EnableUUID=TRUE" \
+              -e="stealclock.enable=TRUE"
 ```
 
 #### master2
@@ -66,5 +70,7 @@ govc vm.change -vm=master2.%GUID%.dynamic.opentlc.com \
               -m 16384 \
               -e="guestinfo.ignition.config.data.encoding=base64" \
               -e="guestinfo.ignition.config.data=${CONFIG_DATA}" \
-              -e="guestinfo.afterburn.initrd.network-kargs=${IPCFG}"
+              -e="guestinfo.afterburn.initrd.network-kargs=${IPCFG}" \
+              -e="disk.EnableUUID=TRUE" \
+              -e="stealclock.enable=TRUE"
 ```

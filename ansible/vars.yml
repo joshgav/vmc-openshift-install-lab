@@ -1,13 +1,13 @@
 ###### YOUR PROPERTIES HERE ######
-guid: 'CHANGEME'
-vcenter_password: 'CHANGEME'
-ocp4_pull_secret: 'CHANGEME'
+guid: ''
+vcenter_password: ''
+datastore_name: ''
+ocp4_pull_secret: ''
 ##################################
 
 ## Defaults
-ocp_version: 4.11.9
+ocp_version: 4.16.13
 student_name: lab-user
 
-vcenter_domain: vc.opentlc.com
-vcenter_hostname: portal.vc.opentlc.com
-vcenter_username: "sandbox-{{ guid }}@vc.opentlc.com"
+vcenter_domain: demo
+vcenter_hostname: vcsnsx-vc.infra.demo.redhat.com

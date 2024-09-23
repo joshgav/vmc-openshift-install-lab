@@ -161,5 +161,5 @@
       chdir: "/home/{{ student_name }}/ocpinstall/install/"
     loop:
     - "/usr/local/bin/openshift-install create manifests --dir ~/ocpinstall/install/ --log-level debug"
-    - "rm -f openshift/99_openshift-cluster-api_master-machines-*.yaml openshift/99_openshift-cluster-api_worker-machineset-*.yaml"
+    - "mv openshift/99_openshift-cluster-api_master-machines-*.yaml openshift/99_openshift-cluster-api_worker-machineset-*.yaml openshift/99_openshift-machine-api_master-control-plane-machine-set.yaml /home/{{ student_name }}/ocpinstall"
     - "sed -i 's/mastersSchedulable: true/mastersSchedulable: false/' manifests/cluster-scheduler-02-config.yml"

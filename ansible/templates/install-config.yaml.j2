@@ -14,13 +14,25 @@ metadata:
   name: {{ guid }}
 platform:
   vsphere:
-    datacenter: SDDC-Datacenter
-    defaultDatastore: WorkloadDatastore
+    vcenters:
+    - server: {{ vcenter_hostname }}
+      datacenters:
+      - SDDC-Datacenter
+      user: sandbox-{{ guid }}@demo
+      password: {{ vcenter_password }}
     diskType: thin
-    folder: /SDDC-Datacenter/vm/Workloads/sandbox-{{ guid }}
-    password: {{ vcenter_password}}
-    username: sandbox-{{ guid }}@{{ vcenter_domain }}
-    vCenter: {{ vcenter_hostname }}
+    failureDomains:
+    - name: dc-east-1a
+      region: dc-east
+      zone: east-1a
+      server: {{ vcenter_hostname }}
+      topology:
+        datacenter: SDDC-Datacenter
+        computeCluster: /SDDC-Datacenter/host/Cluster-1
+        networks:
+        - segment-sandbox-{{ guid }}
+        datastore: /SDDC-Datacenter/datastore/{{ datastore_name }}
+        folder: /SDDC-Datacenter/vm/Workloads/sandbox-{{ guid }}
 publish: External
 pullSecret: {{ ocp4_pull_secret | to_json }}
 sshKey: '{{ sshKey_content }}'

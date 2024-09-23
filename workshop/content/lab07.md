@@ -31,6 +31,8 @@ Next we'll create the bootstrap node, which will help facilitate the install and
                   -m 16384 \
                   -e="guestinfo.ignition.config.data.encoding=base64" \
                   -e="guestinfo.ignition.config.data=${CONFIG_DATA}" \
-                  -e="guestinfo.afterburn.initrd.network-kargs=${IPCFG}"
+                  -e="guestinfo.afterburn.initrd.network-kargs=${IPCFG}" \
+                  -e="disk.EnableUUID=TRUE" \
+                  -e="stealclock.enable=TRUE"
    ```
 
